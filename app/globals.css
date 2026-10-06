@@ -473,3 +473,56 @@ a:hover>.linkArrow,a:focus-visible>.linkArrow{transform:translateX(7px);color:#f
   .transformationFeature__visual,.transformationFeature__meta>*,.transformationStory{transform:none!important;clip-path:none!important;opacity:1!important;visibility:visible!important}
   .transformationStory__frame img{transition:none!important}
 }
+
+/* About RIGI */
+.aboutRigi{position:relative;padding:clamp(125px,14vw,225px) clamp(22px,6vw,110px) clamp(145px,16vw,250px);overflow:hidden;background:#e8e4da;color:#171916;scroll-margin-top:72px}
+.aboutRigi__layout{display:grid;grid-template-columns:minmax(360px,.88fr) minmax(520px,1.12fr);gap:clamp(60px,9vw,150px);align-items:center;max-width:1500px;margin:0 auto clamp(115px,14vw,220px)}
+.aboutRigi__intro>.eyebrow{margin:0 0 clamp(42px,5vw,72px);color:#956e24}
+.aboutRigi__intro h2{margin:0;font-size:clamp(62px,7.4vw,116px);font-weight:450;line-height:.88;letter-spacing:-.065em}
+.aboutRigi__copy{max-width:680px;margin:clamp(42px,5vw,70px) 0 0;color:rgba(23,25,22,.7);font-size:clamp(17px,1.45vw,22px);line-height:1.7}
+.aboutRigi__scope{max-width:610px;margin:28px 0 0;padding-top:22px;border-top:1px solid rgba(23,25,22,.2);color:#7b5a1d;font-size:10px;letter-spacing:.14em;line-height:1.7;text-transform:uppercase}
+.aboutRigi__image{position:relative;width:100%;aspect-ratio:4/5;margin:0;overflow:hidden;background:#cbc6bc}
+.aboutRigi__image::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 66%,rgba(7,9,7,.45));pointer-events:none}
+.aboutRigi__image img{object-fit:cover;object-position:54% center;transition:transform .8s cubic-bezier(.2,.65,.25,1)}
+.aboutRigi__image:hover img{transform:scale(1.018)}
+.aboutRigi__image figcaption{position:absolute;z-index:2;left:22px;bottom:20px;color:#fff;font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+.aboutPrinciples{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));max-width:1500px;margin:0 auto;border-top:1px solid rgba(23,25,22,.23)}
+.aboutPrinciple{position:relative;min-height:290px;padding:30px clamp(18px,2.4vw,38px) 44px 0;transition:color .45s ease}
+.aboutPrinciple+.aboutPrinciple{padding-left:clamp(18px,2.4vw,38px);border-left:1px solid rgba(23,25,22,.16)}
+.aboutPrinciple>span{display:block;color:#956e24;font-size:9px;letter-spacing:.17em}
+.aboutPrinciple h3{margin:clamp(58px,6vw,92px) 0 0;font-size:clamp(28px,3vw,46px);font-weight:450;line-height:.94;letter-spacing:-.04em;transition:transform .5s cubic-bezier(.2,.65,.25,1),color .4s ease}
+.aboutPrinciple p{max-width:260px;margin:20px 0 0;color:rgba(23,25,22,.58);font-size:13px;line-height:1.6;transition:color .4s ease}
+.aboutPrinciple>i{position:absolute;left:0;right:0;top:-1px;height:1px;overflow:hidden}
+.aboutPrinciple>i::after{content:"";position:absolute;inset:0;background:#a77e31;transform:scaleX(.18);transform-origin:left center;transition:transform .6s cubic-bezier(.2,.65,.25,1)}
+.aboutPrinciple+.aboutPrinciple>i{left:clamp(18px,2.4vw,38px)}
+.aboutPrinciple:hover h3{color:#6f5017;transform:translateX(5px)}
+.aboutPrinciple:hover p{color:rgba(23,25,22,.78)}
+.aboutPrinciple:hover>i::after{transform:scaleX(1)}
+
+@media(max-width:980px){
+  .aboutRigi__layout{grid-template-columns:1fr;gap:72px}
+  .aboutRigi__intro{max-width:800px}
+  .aboutRigi__image{width:min(100%,820px);aspect-ratio:16/11}
+  .aboutPrinciples{grid-template-columns:1fr 1fr}
+  .aboutPrinciple:nth-child(3){border-left:0}
+  .aboutPrinciple:nth-child(n+3){border-top:1px solid rgba(23,25,22,.16)}
+}
+@media(max-width:620px){
+  .aboutRigi{padding:104px 20px 135px}
+  .aboutRigi__layout{gap:58px;margin-bottom:95px}
+  .aboutRigi__intro>.eyebrow{margin-bottom:38px}
+  .aboutRigi__intro h2{font-size:clamp(52px,15vw,72px)}
+  .aboutRigi__copy{margin-top:36px;font-size:16px}
+  .aboutRigi__scope{margin-top:24px}
+  .aboutRigi__image{aspect-ratio:4/5}
+  .aboutRigi__image figcaption{left:16px;bottom:15px}
+  .aboutPrinciples{grid-template-columns:1fr}
+  .aboutPrinciple,.aboutPrinciple+.aboutPrinciple{min-height:0;padding:28px 0 48px;border-left:0;border-top:1px solid rgba(23,25,22,.16)}
+  .aboutPrinciple:first-child{border-top:0}
+  .aboutPrinciple+.aboutPrinciple>i{left:0}
+  .aboutPrinciple h3{margin-top:44px;font-size:38px}
+}
+@media(prefers-reduced-motion:reduce){
+  .aboutRigi__copy,.aboutRigi__image,.aboutPrinciple{transform:none!important;clip-path:none!important;opacity:1!important;visibility:visible!important}
+  .aboutRigi__image img,.aboutPrinciple h3,.aboutPrinciple>i::after{transition:none!important}
+}
