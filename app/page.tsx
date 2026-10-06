@@ -4,6 +4,7 @@ import SelectedProjects from '@/components/SelectedProjects';
 import RevealHeading from '@/components/RevealHeading';
 import ServicesSection from '@/components/ServicesSection';
 import WhyRigiSection from '@/components/WhyRigiSection';
+import BeforeAfterSection from '@/components/BeforeAfterSection';
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <SelectedProjects />
       <ServicesSection />
       <WhyRigiSection />
+      <BeforeAfterSection />
     </main>
   );
 }
