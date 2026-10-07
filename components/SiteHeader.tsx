@@ -38,7 +38,7 @@ export default function SiteHeader() {
         <a className="siteHeader__brand" href="#top" aria-label="RIGI Home & Garden Design home">
           <Image
             className="siteHeader__logo"
-            src="/brand/rigi-logo-gold.png"
+            src="/brand/rigi-logo-gold-transparent.png"
             alt="RIGI Home & Garden Design LLC"
             width={1254}
             height={1254}

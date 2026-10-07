@@ -6,44 +6,94 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 export default function HeroBrandOverlay() {
+  const overlayRef = useRef<HTMLDivElement>(null);
   const markRef = useRef<HTMLDivElement>(null);
+  const indicatorRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    const overlay = overlayRef.current;
     const mark = markRef.current;
+    const indicator = indicatorRef.current;
     const hero = document.querySelector<HTMLElement>('.scrollHero');
-    if (!mark || !hero) return;
+    const badge = document.querySelector<HTMLElement>('.licenseBadge');
+    if (!overlay || !mark || !indicator || !hero) return;
 
     gsap.registerPlugin(ScrollTrigger);
 
     const context = gsap.context(() => {
-      gsap.to(mark, {
-        autoAlpha: 0,
-        scale: 0.975,
-        filter: 'blur(1px)',
-        ease: 'none',
+      const progressState = { value: 0 };
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: hero,
           start: 'top top',
-          end: () => `+=${Math.max(window.innerHeight * 0.85, 500)}`,
-          scrub: 0.45,
+          end: '+=620%',
+          scrub: 0.5,
           invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            overlay.style.setProperty('--hero-progress', String(self.progress));
+            document.body.classList.toggle('heroBrandHasFaded', self.progress >= 0.36);
+          },
         },
       });
+
+      timeline
+        .to(progressState, { value: 1, duration: 1, ease: 'none' }, 0)
+        .to(
+          mark,
+          {
+            autoAlpha: 0,
+            scale: reducedMotion ? 1 : 0.975,
+            y: reducedMotion ? 0 : -8,
+            duration: 0.5,
+            ease: 'none',
+          },
+          0.05,
+        )
+        .to(indicator, { autoAlpha: 0, duration: 0.27, ease: 'none' }, 0.18);
+
+      if (badge) {
+        timeline.fromTo(
+          badge,
+          { autoAlpha: 0.2 },
+          { autoAlpha: 1, duration: 0.5, ease: 'none' },
+          0.05,
+        );
+      }
     }, mark);
 
-    return () => context.revert();
+    return () => {
+      document.body.classList.remove('heroBrandHasFaded');
+      context.revert();
+    };
   }, []);
 
   return (
-    <div ref={markRef} className="heroBrandMark" aria-hidden="true">
-      <Image
-        src="/brand/rigi-logo-gold.png"
-        alt=""
-        width={1254}
-        height={1254}
-        priority
-        sizes="(max-width: 700px) 78vw, 52vw"
-      />
+    <div ref={overlayRef} className="heroBrandOverlay">
+      <div ref={markRef} className="heroBrandMark" aria-label="RIGI Home and Garden Design, Licensed General Contractor, Class B, California license number 1161845, Residential and Commercial, Orange County, California">
+        <Image
+          src="/brand/rigi-logo-gold-transparent.png"
+          alt="RIGI Home and Garden Design LLC"
+          width={1254}
+          height={1254}
+          priority
+          sizes="(max-width: 700px) 82vw, 56vw"
+        />
+        <div className="heroBrandMark__credentials">
+          <span>Licensed General Contractor · Class B</span>
+          <strong>CA Lic. #1161845</strong>
+          <span>Residential + Commercial</span>
+          <span>Orange County, California</span>
+        </div>
+      </div>
+
+      <div ref={indicatorRef} className="heroScrollRail" aria-hidden="true">
+        <span className="heroScrollRail__label">Scroll</span>
+        <span className="heroScrollRail__track">
+          <i className="heroScrollRail__progress" />
+          <i className="heroScrollRail__traveler" />
+        </span>
+      </div>
     </div>
   );
 }
