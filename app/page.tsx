@@ -6,11 +6,13 @@ import ServicesSection from '@/components/ServicesSection';
 import WhyRigiSection from '@/components/WhyRigiSection';
 import BeforeAfterSection from '@/components/BeforeAfterSection';
 import AboutSection from '@/components/AboutSection';
+import HeroBrandOverlay from '@/components/HeroBrandOverlay';
 
 export default function Home() {
   return (
     <main id="top">
       <SiteHeader />
+      <HeroBrandOverlay />
       <ScrollBuildHero />
       <section className="afterHero" data-section-reveal>
         <span className="anchorTarget" id="contact" />
