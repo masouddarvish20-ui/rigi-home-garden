@@ -31,7 +31,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <nav className="projectPageNav" aria-label="Project navigation">
         <Link href="/#projects" data-cursor="link">← All Projects</Link><Link className="projectPageNav__brand" href="/" data-cursor="link">RIGI</Link><Link href="/#contact" data-cursor="start" data-magnetic>Start a Project</Link>
       </nav>
-      <header className="projectPageHero">
+      <header className="projectPageHero" style={{ position: 'relative' }}>
         <Image src={project.heroImage} alt={project.heroAlt} fill priority sizes="100vw" /><div className="projectPageHero__shade" />
         <div className="projectPageHero__copy"><p>{project.id} · {project.location}</p><RevealHeading as="h1" text={project.name} depth /><span>{project.category}</span></div>
         <a className="projectPageHero__scroll" href="#project-overview">View the process ↓</a>

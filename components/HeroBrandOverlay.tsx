@@ -39,25 +39,30 @@ export default function HeroBrandOverlay() {
 
       timeline
         .to(progressState, { value: 1, duration: 1, ease: 'none' }, 0)
+        .to(mark, { opacity: 0.978, duration: 0.1, ease: 'none' }, 0)
+        .to(mark, { opacity: 0.848, duration: 0.1, ease: 'none' }, 0.1)
+        .to(mark, { opacity: 0.652, duration: 0.1, ease: 'none' }, 0.2)
+        .to(mark, { opacity: 0.413, duration: 0.1, ease: 'none' }, 0.3)
+        .to(mark, { opacity: 0.196, duration: 0.1, ease: 'none' }, 0.4)
+        .to(mark, { autoAlpha: 0, duration: 0.1, ease: 'none' }, 0.5)
         .to(
           mark,
           {
-            autoAlpha: 0,
-            scale: reducedMotion ? 1 : 0.975,
-            y: reducedMotion ? 0 : -8,
-            duration: 0.5,
+            scale: reducedMotion ? 1 : 0.98,
+            y: reducedMotion ? 0 : -6,
+            duration: 0.6,
             ease: 'none',
           },
-          0.05,
+          0,
         )
-        .to(indicator, { autoAlpha: 0, duration: 0.27, ease: 'none' }, 0.18);
+        .to(indicator, { autoAlpha: 0, duration: 0.32, ease: 'none' }, 0.2);
 
       if (badge) {
         timeline.fromTo(
           badge,
           { autoAlpha: 0.2 },
           { autoAlpha: 1, duration: 0.5, ease: 'none' },
-          0.05,
+          0.1,
         );
       }
     }, mark);
