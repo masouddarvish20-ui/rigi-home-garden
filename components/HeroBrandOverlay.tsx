@@ -39,11 +39,11 @@ export default function HeroBrandOverlay() {
 
       timeline
         .to(progressState, { value: 1, duration: 1, ease: 'none' }, 0)
-        .to(mark, { opacity: 0.978, duration: 0.1, ease: 'none' }, 0)
-        .to(mark, { opacity: 0.848, duration: 0.1, ease: 'none' }, 0.1)
-        .to(mark, { opacity: 0.652, duration: 0.1, ease: 'none' }, 0.2)
-        .to(mark, { opacity: 0.413, duration: 0.1, ease: 'none' }, 0.3)
-        .to(mark, { opacity: 0.196, duration: 0.1, ease: 'none' }, 0.4)
+        .to(mark, { opacity: 0.979, duration: 0.1, ease: 'none' }, 0)
+        .to(mark, { opacity: 0.875, duration: 0.1, ease: 'none' }, 0.1)
+        .to(mark, { opacity: 0.708, duration: 0.1, ease: 'none' }, 0.2)
+        .to(mark, { opacity: 0.5, duration: 0.1, ease: 'none' }, 0.3)
+        .to(mark, { opacity: 0.26, duration: 0.1, ease: 'none' }, 0.4)
         .to(mark, { autoAlpha: 0, duration: 0.1, ease: 'none' }, 0.5)
         .to(
           mark,
