@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -28,14 +27,6 @@ export default function AboutSection() {
         ease: 'power3.out',
         scrollTrigger: { trigger: '.aboutRigi__copy', start: 'top 86%', toggleActions: 'play none none reverse' },
       });
-      gsap.fromTo('.aboutRigi__image', { autoAlpha: 0, clipPath: 'inset(8% 0 8% 0)', scale: 1.035 }, {
-        autoAlpha: 1,
-        clipPath: 'inset(0% 0 0% 0)',
-        scale: 1,
-        duration: 1.15,
-        ease: 'power3.out',
-        scrollTrigger: { trigger: '.aboutRigi__image', start: 'top 84%', toggleActions: 'play none none reverse' },
-      });
       gsap.fromTo('.aboutPrinciple', { autoAlpha: 0, y: 34 }, {
         autoAlpha: 1,
         y: 0,
@@ -60,17 +51,6 @@ export default function AboutSection() {
           </p>
           <p className="aboutRigi__scope">Residential &amp; commercial · California standards · Germany, Dubai &amp; California</p>
         </header>
-
-        <figure className="aboutRigi__image">
-          <Image
-            src="/projects/germany/de-03/selected/DE-03_Luxury_Interior_Bathroom_and_Flooring__photo-166.webp"
-            alt="Completed RIGI interior renovation with polished flooring and architectural lighting"
-            fill
-            sizes="(max-width: 820px) 100vw, 48vw"
-            loading="lazy"
-          />
-          <figcaption>Completed interior renovation · Germany</figcaption>
-        </figure>
       </div>
 
       <div className="aboutPrinciples" aria-label="RIGI working principles">

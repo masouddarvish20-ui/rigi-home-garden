@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import RevealHeading from '@/components/RevealHeading';
-import { featuredTransformation, supportingTransformations } from '@/data/transformations';
+import { featuredTransformation } from '@/data/transformations';
 
 export default function BeforeAfterSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -32,15 +32,6 @@ export default function BeforeAfterSection() {
         stagger: .08,
         ease: 'power3.out',
         scrollTrigger: { trigger: '.transformationFeature__meta', start: 'top 88%', toggleActions: 'play none none reverse' },
-      });
-      gsap.utils.toArray<HTMLElement>('.transformationStory').forEach((story) => {
-        gsap.fromTo(story, { autoAlpha: 0, y: 44 }, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: story, start: 'top 88%', toggleActions: 'play none none reverse' },
-        });
       });
     }, sectionRef);
 
@@ -84,32 +75,9 @@ export default function BeforeAfterSection() {
           <p>{featuredTransformation.projectId} · {featuredTransformation.location} · {featuredTransformation.category}</p>
           <h3>{featuredTransformation.title}</h3>
           <p>{featuredTransformation.context}</p>
-          <Link href={featuredTransformation.detailPath} data-cursor="view">View Full Project <span className="linkArrow" aria-hidden="true">→</span></Link>
+          <Link href={featuredTransformation.detailPath} data-cursor="view">Explore Transformations <span className="linkArrow" aria-hidden="true">→</span></Link>
         </div>
       </article>
-
-      <div className="transformationStories" aria-label="Additional documented transformations">
-        {supportingTransformations.map((transformation, index) => (
-          <article className={`transformationStory transformationStory--${index + 1}`} key={transformation.id}>
-            <div className="transformationStory__images">
-              <figure className="transformationStory__frame transformationStory__frame--before">
-                <Image src={transformation.before} alt={transformation.beforeAlt} fill sizes="(max-width: 760px) 100vw, 48vw" loading="lazy" />
-                <figcaption>Before</figcaption>
-              </figure>
-              <figure className="transformationStory__frame transformationStory__frame--after">
-                <Image src={transformation.after} alt={transformation.afterAlt} fill sizes="(max-width: 760px) 100vw, 48vw" loading="lazy" />
-                <figcaption>After</figcaption>
-              </figure>
-            </div>
-            <div className="transformationStory__copy">
-              <p>{transformation.projectId} · {transformation.location} · {transformation.category}</p>
-              <h3>{transformation.title}</h3>
-              <p>{transformation.context}</p>
-              <Link href={transformation.detailPath} data-cursor="view">View Full Project <span className="linkArrow" aria-hidden="true">→</span></Link>
-            </div>
-          </article>
-        ))}
-      </div>
     </section>
   );
 }

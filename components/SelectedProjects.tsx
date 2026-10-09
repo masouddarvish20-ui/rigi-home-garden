@@ -8,6 +8,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { promotedProjects } from '@/data/projects';
 import RevealHeading from '@/components/RevealHeading';
 
+const featuredProjects = promotedProjects.filter((project) => ['DE-01', 'DE-02', 'DXB-01'].includes(project.id));
+
 export default function SelectedProjects() {
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -71,24 +73,21 @@ export default function SelectedProjects() {
     <section ref={sectionRef} className="portfolio" id="projects" aria-labelledby="portfolio-title">
       <div className="portfolioIntro">
         <p className="eyebrow eyebrow--line" data-gold-line>SELECTED PROJECTS</p>
-        <RevealHeading id="portfolio-title" text={'Built work.\nDocumented fully.'} depth />
-        <p className="portfolioIntro__lede">Explore substantial residential and commercial transformations across Germany and Dubai—from existing conditions through construction and final completion.</p>
+        <RevealHeading id="portfolio-title" text={'Featured Work.'} depth />
+        <p className="portfolioIntro__lede">A concise preview of completed residential and commercial work. Explore each project for the full documented process.</p>
         <div className="portfolioIntro__index" aria-label="Portfolio summary">
-          <span><strong>04</strong> Verified projects</span>
+          <span><strong>03</strong> Featured projects</span>
           <span><strong>253</strong> Process photographs</span>
           <span><strong>02</strong> International markets</span>
         </div>
       </div>
 
       <div className="portfolioStories">
-        {promotedProjects.map((project, index) => (
+        {featuredProjects.map((project, index) => (
           <article className={`portfolioStory portfolioStory--${index + 1}`} key={project.id}>
             <Link className="portfolioStory__media portfolioStory__media--primary" href={project.detailPath} aria-label={`Explore ${project.name}`} data-cursor="view" data-pointer-depth>
-              <span className="portfolioStory__image"><Image src={project.heroImage} alt={project.heroAlt} fill priority={index === 0} sizes={index === 0 ? '100vw' : '(max-width: 760px) 100vw, 68vw'} /></span>
+              <span className="portfolioStory__image"><Image src={project.id === 'DXB-01' ? project.secondaryImage : project.heroImage} alt={project.heroAlt} fill priority={index === 0} sizes={index === 0 ? '100vw' : '(max-width: 760px) 100vw, 68vw'} /></span>
               <span className="portfolioStory__number">{String(index + 1).padStart(2, '0')}</span>
-            </Link>
-            <Link className="portfolioStory__media portfolioStory__media--secondary" href={project.detailPath} tabIndex={-1} aria-hidden="true" data-cursor="view" data-depth="slow">
-              <span className="portfolioStory__image"><Image src={project.secondaryImage} alt="" fill sizes="(max-width: 760px) 100vw, 38vw" /></span>
             </Link>
             <div className="portfolioStory__copy">
               <p className="portfolioStory__overline eyebrow--line" data-gold-line>{project.id} · {project.location} · {project.category}</p>
