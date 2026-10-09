@@ -7,6 +7,8 @@ import WhyRigiSection from '@/components/WhyRigiSection';
 import BeforeAfterSection from '@/components/BeforeAfterSection';
 import AboutSection from '@/components/AboutSection';
 import HeroBrandOverlay from '@/components/HeroBrandOverlay';
+import ContactSection from '@/components/ContactSection';
+import SiteFooter from '@/components/SiteFooter';
 
 export default function Home() {
   return (
@@ -15,7 +17,6 @@ export default function Home() {
       <HeroBrandOverlay />
       <ScrollBuildHero />
       <section className="afterHero" data-section-reveal>
-        <span className="anchorTarget" id="contact" />
         <p className="eyebrow eyebrow--line" data-gold-line>RIGI HOME &amp; GARDEN DESIGN LLC</p>
         <RevealHeading text="We build more than homes." depth />
         <p>Custom Construction · Remodeling · Outdoor Living</p>
@@ -25,6 +26,8 @@ export default function Home() {
       <WhyRigiSection />
       <BeforeAfterSection />
       <AboutSection />
+      <ContactSection />
+      <SiteFooter />
     </main>
   );
 }

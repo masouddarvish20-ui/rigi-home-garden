@@ -6,6 +6,7 @@ import ProjectGallery from '@/components/ProjectGallery';
 import { findProject, promotedProjects } from '@/data/projects';
 import { getProjectGallery } from '@/lib/projectAssets';
 import RevealHeading from '@/components/RevealHeading';
+import SiteFooter from '@/components/SiteFooter';
 
 type ProjectPageProps = { params: Promise<{ country: string; slug: string }> };
 
@@ -26,10 +27,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project || project.needsVerification || !project.promoted) notFound();
   const phases = getProjectGallery(project);
 
-  return (
+  return (<>
     <main className="projectPage" id="projects">
       <nav className="projectPageNav" aria-label="Project navigation">
-        <Link href="/#projects" data-cursor="link">← All Projects</Link><Link className="projectPageNav__brand" href="/" data-cursor="link">RIGI</Link><Link href="/#contact" data-cursor="start" data-magnetic>Start a Project</Link>
+        <Link href="/projects" data-cursor="link">← All Projects</Link><Link className="projectPageNav__brand" href="/" data-cursor="link">RIGI</Link><Link href="/contact" data-cursor="start" data-magnetic>Start a Project</Link>
       </nav>
       <header className="projectPageHero" style={{ position: 'relative' }}>
         <Image src={project.heroImage} alt={project.heroAlt} fill priority sizes="100vw" /><div className="projectPageHero__shade" />
@@ -45,9 +46,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </section>
       <ProjectGallery phases={phases} projectName={project.name} />
       <footer className="projectPageFooter">
-        <p>Have a project in mind?</p><Link href="/#contact" data-cursor="start" data-magnetic>Start Your Project <span className="linkArrow" aria-hidden="true">→</span></Link>
-        <Link className="projectPageFooter__back" href="/#projects">Back to all projects</Link>
+        <p>Ready to start your project?</p><Link href="/contact" data-cursor="start" data-magnetic>Start Your Project <span className="linkArrow" aria-hidden="true">→</span></Link>
+        <Link className="projectPageFooter__back" href="/projects">Back to all projects</Link>
       </footer>
     </main>
-  );
+    <SiteFooter />
+  </>);
 }

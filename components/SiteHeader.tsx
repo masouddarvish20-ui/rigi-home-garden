@@ -1,16 +1,17 @@
 'use client';
 
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-const navigation = [
-  { label: 'Projects', href: '#projects' },
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
-];
-
 export default function SiteHeader() {
+  const pathname = usePathname();
+  const navigation = [
+    { label: 'Projects', href: '/projects' },
+    { label: 'Services', href: pathname === '/' ? '#services' : '/#services' },
+    { label: 'About', href: pathname === '/' ? '#about' : '/#about' },
+    { label: 'Contact', href: '/contact' },
+  ];
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -33,9 +34,9 @@ export default function SiteHeader() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className={`siteHeader${scrolled || menuOpen ? ' siteHeader--solid' : ''}`}>
+    <header className={`siteHeader${scrolled || menuOpen ? ' siteHeader--solid' : ''}${pathname !== '/' ? ' siteHeader--internal' : ''}`}>
       <div className="siteHeader__inner">
-        <a className="siteHeader__brand" href="#top" aria-label="RIGI Home & Garden Design home">
+        <a className="siteHeader__brand" href="/" aria-label="RIGI Home & Garden Design home">
           <Image
             className="siteHeader__logo"
             src="/brand/rigi-logo-gold-transparent.png"
@@ -52,7 +53,7 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <a className="siteHeader__cta" href="#contact" data-cursor="start" data-magnetic>Start Your Project</a>
+        <a className="siteHeader__cta" href="/contact" data-cursor="start" data-magnetic>Start Your Project</a>
 
         <button
           className="siteHeader__menuButton"
@@ -76,7 +77,7 @@ export default function SiteHeader() {
           {navigation.map((item) => (
             <a key={item.href} href={item.href} onClick={closeMenu}>{item.label}</a>
           ))}
-          <a className="siteHeader__mobileCta" href="#contact" onClick={closeMenu}>
+          <a className="siteHeader__mobileCta" href="/contact" onClick={closeMenu}>
             Start Your Project
           </a>
         </nav>
