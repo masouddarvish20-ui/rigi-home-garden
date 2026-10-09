@@ -60,7 +60,7 @@ export default function HeroBrandOverlay() {
       if (badge) {
         timeline.fromTo(
           badge,
-          { autoAlpha: 0.2 },
+          { autoAlpha: 0.3 },
           { autoAlpha: 1, duration: 0.5, ease: 'none' },
           0.1,
         );
