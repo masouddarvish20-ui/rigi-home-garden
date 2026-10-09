@@ -561,6 +561,7 @@ a:hover>.linkArrow,a:focus-visible>.linkArrow{transform:translateX(7px);color:va
 .projectPage .projectLightbox{background:color-mix(in srgb,#315C4A 96%,transparent)}
 .projectPage .projectLightbox__arrow{background:color-mix(in srgb,#294F40 90%,transparent)}
 .projectsIndex,.contactPage{min-height:100vh;background:#315C4A;color:var(--rigi-gold-copy)}
+.projectsIndex~.licenseBadge,.contactPage~.licenseBadge,.projectPage~.licenseBadge{display:none}
 .projectsIndex__intro{max-width:1280px;margin:0 auto;padding:clamp(150px,18vw,230px) clamp(22px,7vw,110px) clamp(60px,8vw,100px)}
 .projectsIndex__intro .eyebrow{margin:0;color:var(--rigi-gold-400)}
 .projectsIndex__intro h1{margin:24px 0 16px;color:var(--rigi-gold-400);font-size:clamp(38px,5vw,66px);font-weight:500;line-height:.98;letter-spacing:-.045em}

@@ -108,7 +108,7 @@ export default function SelectedProjects() {
         {homepageFeatures.map(({ project, image, alt }, index) => (
           <article className={`portfolioStory portfolioStory--${index + 1}`} key={`${project.id}-${image}`}>
             <Link className="portfolioStory__media portfolioStory__media--primary" href={project.detailPath} aria-label={`Explore ${project.name}`} data-cursor="view" data-pointer-depth>
-              <span className="portfolioStory__image"><Image src={image} alt={alt} fill priority={index === 0} sizes={index === 0 ? '100vw' : '(max-width: 760px) 100vw, 68vw'} /></span>
+              <span className="portfolioStory__image"><Image src={image} alt={alt} fill priority={index === 0} sizes="(max-width: 760px) 100vw, 58vw" /></span>
               <span className="portfolioStory__number">{String(index + 1).padStart(2, '0')}</span>
             </Link>
             <div className="portfolioStory__copy">
