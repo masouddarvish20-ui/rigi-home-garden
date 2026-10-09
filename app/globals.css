@@ -5,7 +5,7 @@ body{--font-display:var(--font-manrope),Arial,sans-serif;--font-body:var(--font-
 body{overflow-x:hidden}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 h1,h2,h3{font-family:var(--font-display);font-weight:450;text-wrap:balance}
-.siteHeader{position:fixed;top:0;left:0;right:0;z-index:50;height:84px;background:#0F2A21;border-bottom:1px solid transparent;transition:height .35s ease,background-color .35s ease,border-color .35s ease,backdrop-filter .35s ease}
+.siteHeader{position:fixed;top:0;left:0;right:0;z-index:50;height:84px;background:#315C4A;border-bottom:1px solid transparent;transition:height .35s ease,background-color .35s ease,border-color .35s ease,backdrop-filter .35s ease}
 .siteHeader--solid{height:72px;background:color-mix(in srgb,var(--rigi-green-950) 78%,transparent);border-bottom-color:color-mix(in srgb,var(--rigi-gold-500) 16%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .siteHeader__inner{height:100%;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(28px,4vw,68px);padding:0 clamp(24px,5vw,76px)}
 .siteHeader__brand{display:flex;align-items:center;width:58px;height:58px;text-decoration:none;overflow:hidden;border-radius:3px;box-shadow:0 3px 22px color-mix(in srgb,var(--rigi-green-950) 18%,transparent);transition:width .35s ease,height .35s ease,transform .25s ease}
@@ -45,7 +45,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:450;text-wrap:balance}
 .button--ghost{color:var(--rigi-gold-copy);border:1px solid color-mix(in srgb,var(--rigi-gold-500) 58%,transparent);backdrop-filter:blur(8px);background:color-mix(in srgb,var(--rigi-green-950) 12%,transparent)}
 .scrollHint{position:absolute;right:34px;bottom:34px;z-index:3;display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;opacity:.78}
 .scrollHint span{width:30px;height:1px;background:currentColor;display:block}
-.afterHero{min-height:0;padding:clamp(88px,9vw,130px) clamp(24px,7vw,120px);background:#0F2A21;color:var(--rigi-gold-copy)}
+.afterHero{min-height:0;padding:clamp(88px,9vw,130px) clamp(24px,7vw,120px);background:#315C4A;color:var(--rigi-gold-copy)}
 .afterHero h2{font-size:clamp(35px,4vw,72px);line-height:.98;letter-spacing:-.045em;margin:14px 0 22px;font-weight:500}
 .afterHero p{font-size:16px}
 .selectedProjects{position:relative;padding:clamp(96px,11vw,176px) clamp(24px,7vw,120px) clamp(110px,13vw,210px);background:var(--rigi-green-950);color:var(--rigi-gold-copy);scroll-margin-top:72px}
@@ -123,7 +123,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:450;text-wrap:balance}
 }
 
 /* Portfolio entrance */
-.portfolio{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);overflow:hidden;background:#0F2A21;color:var(--rigi-gold-copy);scroll-margin-top:72px}
+.portfolio{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);overflow:hidden;background:#315C4A;color:var(--rigi-gold-copy);scroll-margin-top:72px}
 .portfolioIntro{max-width:1500px;margin:0 auto clamp(65px,7vw,105px);display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:24px clamp(50px,9vw,150px);align-items:end}
 .portfolioIntro>.eyebrow{grid-column:1/-1;margin:0;color:var(--rigi-gold-400)}
 .portfolioIntro h2{margin:0;font-size:clamp(35px,4vw,72px);font-weight:500;line-height:.94;letter-spacing:-.055em}
@@ -135,7 +135,7 @@ h1,h2,h3{font-family:var(--font-display);font-weight:450;text-wrap:balance}
 .portfolioStories{max-width:1500px;margin:0 auto}
 .portfolioStory{position:relative;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(24px,3.5vw,58px);align-items:center;margin-bottom:clamp(80px,8vw,125px)}
 .portfolioStory:last-child{margin-bottom:0}
-.portfolioStory__media{position:relative;display:block;overflow:hidden;background:var(--rigi-green-950);color:var(--rigi-gold-copy);text-decoration:none;clip-path:inset(0)}
+.portfolioStory__media{position:relative;display:block;overflow:hidden;background:#294F40;color:var(--rigi-gold-copy);text-decoration:none;clip-path:inset(0)}
 .portfolioStory__image{position:absolute;inset:-5% 0;transition:transform .7s cubic-bezier(.2,.65,.25,1);will-change:transform}
 .portfolioStory__image img{object-fit:cover}
 .portfolioStory__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,color-mix(in srgb,var(--rigi-green-950) 38%,transparent));transition:background-color .6s ease}
@@ -162,6 +162,13 @@ h1,h2,h3{font-family:var(--font-display);font-weight:450;text-wrap:balance}
 .portfolioStory--4 .portfolioStory__media--secondary{grid-column:1/5;aspect-ratio:4/5}
 .portfolioStory--4 .portfolioStory__copy{grid-column:1/5;grid-row:2;padding-top:clamp(30px,4vw,65px)}
 .portfolioStory--4 .portfolioStory__copy h3{font-size:clamp(38px,4.6vw,72px)}
+.portfolioSupporting{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);gap:clamp(22px,3.5vw,56px);align-items:end;max-width:1180px;margin:clamp(78px,8vw,120px) auto 0}
+.portfolioSupporting__item{position:relative;display:block;margin:0;overflow:hidden;background:#294F40;color:var(--rigi-gold-copy);text-decoration:none}
+.portfolioSupporting__item--verified{width:min(100%,390px);aspect-ratio:4/5}
+.portfolioSupporting__item--atmosphere{aspect-ratio:16/9}
+.portfolioSupporting__item img{object-fit:cover;transition:transform .7s cubic-bezier(.2,.65,.25,1)}
+.portfolioSupporting__item:hover img{transform:scale(1.018)}
+.portfolioSupporting__item--verified>span{position:absolute;z-index:2;left:16px;bottom:14px;padding:8px 10px;background:color-mix(in srgb,#294F40 82%,transparent);color:var(--rigi-gold-400);font-size:9px;letter-spacing:.14em}
 
 /* Project archive pages */
 .projectPage{background:var(--rigi-green-950);color:var(--rigi-gold-copy)}
@@ -226,6 +233,9 @@ h1,h2,h3{font-family:var(--font-display);font-weight:450;text-wrap:balance}
   .portfolioStory__copy,.portfolioStory--1 .portfolioStory__copy,.portfolioStory--2 .portfolioStory__copy,.portfolioStory--3 .portfolioStory__copy,.portfolioStory--4 .portfolioStory__copy{margin:0;padding:10px 0 0}
   .portfolioStory__copy h3,.portfolioStory--4 .portfolioStory__copy h3{font-size:clamp(34px,9vw,48px)}
   .portfolioStory__description{margin-top:20px}
+  .portfolioSupporting{grid-template-columns:1fr;gap:20px;margin-top:72px}
+  .portfolioSupporting__item--verified{width:min(72%,390px);aspect-ratio:4/5}
+  .portfolioSupporting__item--atmosphere{width:min(84%,480px);aspect-ratio:16/10;justify-self:end}
   .projectPageNav{height:62px;padding:0 16px}.projectPageNav__brand{display:none}.projectPageNav{grid-template-columns:1fr 1fr}
   .projectPageHero{min-height:600px}.projectPageHero__copy{bottom:90px}.projectPageHero__copy h1{font-size:clamp(48px,15vw,72px)}
   .projectOverview{padding:100px 20px}.projectOverview h2{font-size:38px}
@@ -291,7 +301,7 @@ a:hover>.linkArrow,a:focus-visible>.linkArrow{transform:translateX(7px);color:va
 }
 
 /* Services */
-.servicesSection{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);background:#0F2A21;color:var(--rigi-gold-copy);scroll-margin-top:72px}
+.servicesSection{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);background:#315C4A;color:var(--rigi-gold-copy);scroll-margin-top:72px}
 .servicesIntro{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:24px clamp(50px,9vw,150px);align-items:end;max-width:1500px;margin:0 auto clamp(58px,6vw,90px)}
 .servicesIntro>.eyebrow{grid-column:1/-1;margin:0;color:var(--rigi-gold-600)}
 .servicesIntro h2{margin:0;font-size:clamp(35px,4vw,72px);font-weight:450;line-height:.94;letter-spacing:-.055em}
@@ -347,7 +357,7 @@ a:hover>.linkArrow,a:focus-visible>.linkArrow{transform:translateX(7px);color:va
 }
 
 /* Why RIGI */
-.whyRigi{position:relative;padding:clamp(95px,10vw,155px) clamp(22px,6vw,110px) clamp(105px,11vw,175px);overflow:hidden;background:#0F2A21;color:var(--rigi-gold-copy);scroll-margin-top:72px}
+.whyRigi{position:relative;padding:clamp(95px,10vw,155px) clamp(22px,6vw,110px) clamp(105px,11vw,175px);overflow:hidden;background:#315C4A;color:var(--rigi-gold-copy);scroll-margin-top:72px}
 .whyRigi::before{content:"";position:absolute;top:0;left:clamp(22px,6vw,110px);right:clamp(22px,6vw,110px);height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--rigi-gold-500) 58%,transparent),color-mix(in srgb,var(--rigi-gold-500) 8%,transparent) 34%,transparent)}
 .whyRigi__layout{display:grid;grid-template-columns:minmax(310px,.72fr) minmax(560px,1.28fr);gap:clamp(55px,7vw,110px);align-items:start;max-width:1500px;margin:0 auto}
 .whyRigiIntro{position:sticky;top:118px}
@@ -407,7 +417,7 @@ a:hover>.linkArrow,a:focus-visible>.linkArrow{transform:translateX(7px);color:va
 }
 
 /* Before & After */
-.beforeAfter{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);overflow:hidden;background:#0F2A21;color:var(--rigi-gold-copy);scroll-margin-top:72px}
+.beforeAfter{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);overflow:hidden;background:#315C4A;color:var(--rigi-gold-copy);scroll-margin-top:72px}
 .beforeAfterIntro{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:24px clamp(50px,9vw,150px);align-items:end;max-width:1500px;margin:0 auto clamp(58px,6vw,90px)}
 .beforeAfterIntro>.eyebrow{grid-column:1/-1;margin:0;color:var(--rigi-gold-400)}
 .beforeAfterIntro h2{margin:0;font-size:clamp(35px,4vw,72px);font-weight:450;line-height:.94;letter-spacing:-.055em}
@@ -476,7 +486,7 @@ a:hover>.linkArrow,a:focus-visible>.linkArrow{transform:translateX(7px);color:va
 }
 
 /* About RIGI */
-.aboutRigi{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);overflow:hidden;background:#0F2A21;color:var(--rigi-gold-copy);scroll-margin-top:72px}
+.aboutRigi{position:relative;padding:clamp(90px,9vw,140px) clamp(22px,6vw,110px) clamp(100px,10vw,160px);overflow:hidden;background:#315C4A;color:var(--rigi-gold-copy);scroll-margin-top:72px}
 .aboutRigi__layout{display:block;max-width:1200px;margin:0 auto clamp(65px,7vw,105px)}
 .aboutRigi__intro>.eyebrow{margin:0 0 clamp(42px,5vw,72px);color:var(--rigi-gold-600)}
 .aboutRigi__intro h2{margin:0;font-size:clamp(35px,4vw,72px);font-weight:450;line-height:.94;letter-spacing:-.055em}

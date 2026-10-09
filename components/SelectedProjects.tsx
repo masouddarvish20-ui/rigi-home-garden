@@ -8,7 +8,20 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { promotedProjects } from '@/data/projects';
 import RevealHeading from '@/components/RevealHeading';
 
-const featuredProjects = promotedProjects.filter((project) => ['DE-01', 'DE-02', 'DXB-01'].includes(project.id));
+function getVerifiedProject(id: string) {
+  const project = promotedProjects.find((candidate) => candidate.id === id);
+  if (!project) throw new Error(`Required verified homepage project ${id} is missing.`);
+  return project;
+}
+
+const de01 = getVerifiedProject('DE-01');
+const dxb01 = getVerifiedProject('DXB-01');
+
+const homepageFeatures = [
+  { project: de01, image: '/images/homepage/rigi-home-03.jpg', alt: 'Completed exterior renovation from the verified DE-01 project archive' },
+  { project: de01, image: '/images/homepage/rigi-home-01.jpg', alt: 'Completed interior stair and finish work from the verified DE-01 project archive' },
+  { project: dxb01, image: '/images/homepage/rigi-home-04.jpg', alt: 'Completed KAM Car Vintage showroom exterior from the verified DXB-01 project archive' },
+];
 
 export default function SelectedProjects() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -64,6 +77,15 @@ export default function SelectedProjects() {
           );
         }
       });
+
+      gsap.fromTo(
+        '.portfolioSupporting__item',
+        { autoAlpha: 0, y: 24 },
+        {
+          autoAlpha: 1, y: 0, duration: 1, stagger: 0.12, ease: 'power3.out',
+          scrollTrigger: { trigger: '.portfolioSupporting', start: 'top 88%', toggleActions: 'play none none reverse' },
+        },
+      );
     }, sectionRef);
 
     return () => context.revert();
@@ -76,17 +98,17 @@ export default function SelectedProjects() {
         <RevealHeading id="portfolio-title" text={'Featured Work.'} depth />
         <p className="portfolioIntro__lede">A concise preview of completed residential and commercial work. Explore each project for the full documented process.</p>
         <div className="portfolioIntro__index" aria-label="Portfolio summary">
-          <span><strong>03</strong> Featured projects</span>
-          <span><strong>253</strong> Process photographs</span>
-          <span><strong>02</strong> International markets</span>
+          <span><strong>03</strong> Primary images</span>
+          <span><strong>02</strong> Supporting images</span>
+          <span><strong>02</strong> Verified projects</span>
         </div>
       </div>
 
       <div className="portfolioStories">
-        {featuredProjects.map((project, index) => (
-          <article className={`portfolioStory portfolioStory--${index + 1}`} key={project.id}>
+        {homepageFeatures.map(({ project, image, alt }, index) => (
+          <article className={`portfolioStory portfolioStory--${index + 1}`} key={`${project.id}-${image}`}>
             <Link className="portfolioStory__media portfolioStory__media--primary" href={project.detailPath} aria-label={`Explore ${project.name}`} data-cursor="view" data-pointer-depth>
-              <span className="portfolioStory__image"><Image src={project.id === 'DXB-01' ? project.secondaryImage : project.heroImage} alt={project.heroAlt} fill priority={index === 0} sizes={index === 0 ? '100vw' : '(max-width: 760px) 100vw, 68vw'} /></span>
+              <span className="portfolioStory__image"><Image src={image} alt={alt} fill priority={index === 0} sizes={index === 0 ? '100vw' : '(max-width: 760px) 100vw, 68vw'} /></span>
               <span className="portfolioStory__number">{String(index + 1).padStart(2, '0')}</span>
             </Link>
             <div className="portfolioStory__copy">
@@ -101,6 +123,16 @@ export default function SelectedProjects() {
             </div>
           </article>
         ))}
+      </div>
+
+      <div className="portfolioSupporting" aria-label="Additional approved RIGI imagery">
+        <Link className="portfolioSupporting__item portfolioSupporting__item--verified" href={de01.detailPath} aria-label={`Explore ${de01.name}`} data-cursor="view">
+          <Image src="/images/homepage/rigi-home-02.jpg" alt="Completed kitchen from the verified DE-01 project archive" fill sizes="(max-width: 760px) 100vw, 34vw" />
+          <span>DE-01 · VERIFIED PROJECT DETAIL</span>
+        </Link>
+        <figure className="portfolioSupporting__item portfolioSupporting__item--atmosphere">
+          <Image src="/images/homepage/rigi-home-05.jpg" alt="Approved RIGI construction atmosphere at golden hour" fill sizes="(max-width: 760px) 100vw, 48vw" />
+        </figure>
       </div>
     </section>
   );
